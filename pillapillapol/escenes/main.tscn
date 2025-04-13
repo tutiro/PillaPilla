@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj88dk53uviec"]
+
+[ext_resource type="Texture2D" uid="uid://b1cglqlcbfinn" path="res://imatges/fondo/Sample.png" id="1_4fb4s"]
+[ext_resource type="PackedScene" uid="uid://coydpf6pudjbg" path="res://escenes/escapa.tscn" id="1_ulgb6"]
+[ext_resource type="PackedScene" uid="uid://c24r74pmnge04" path="res://escenes/limits.tscn" id="2_n0llp"]
+[ext_resource type="PackedScene" uid="uid://c8uolcbj06xgf" path="res://escenes/pilla.tscn" id="3_n0llp"]
+
+[node name="main" type="Node2D"]
+
+[node name="fons" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(576, 324)
+scale = Vector2(1.2549, 1.25825)
+texture = ExtResource("1_4fb4s")
+
+[node name="limits" parent="." instance=ExtResource("2_n0llp")]
+visible = false
+
+[node name="pilla" parent="." instance=ExtResource("3_n0llp")]
+position = Vector2(964, 375)
+
+[node name="escapa" parent="." instance=ExtResource("1_ulgb6")]
+position = Vector2(305, 475)

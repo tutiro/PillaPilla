@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://c8uolcbj06xgf"]
+
+[ext_resource type="Texture2D" uid="uid://c34xnyx5klpqa" path="res://imatges/personatge2/dreta2/alienBeige_walk1.png" id="1_6otkp"]
+[ext_resource type="Script" uid="uid://de6d4ulwaqkks" path="res://codis/pilla.gd" id="1_r1ij5"]
+[ext_resource type="Texture2D" uid="uid://depi7bk1aaw1u" path="res://imatges/personatge2/dreta2/alienBeige_walk2.png" id="2_r1ij5"]
+[ext_resource type="Texture2D" uid="uid://cc4w6mgfsaemd" path="res://imatges/personatge2/esqurra2/alienBeige_walk1.png" id="3_q8myl"]
+[ext_resource type="Texture2D" uid="uid://rkil1fnv6yij" path="res://imatges/personatge2/esqurra2/alienBeige_walk2.png" id="4_htq1i"]
+[ext_resource type="Texture2D" uid="uid://dfh8j0sv2mu03" path="res://imatges/personatge2/alienBeige_stand.png" id="5_ae0bm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wx4wa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6otkp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_r1ij5")
+}],
+"loop": true,
+"name": &"dreta2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_q8myl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_htq1i")
+}],
+"loop": true,
+"name": &"esquerra2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ae0bm")
+}],
+"loop": true,
+"name": &"quiet2",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dpyap"]
+size = Vector2(66, 92)
+
+[node name="pilla" type="Node2D"]
+scale = Vector2(0.25, 0.25)
+metadata/_edit_group_ = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["jugador"]]
+script = ExtResource("1_r1ij5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_wx4wa")
+animation = &"quiet2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_dpyap")

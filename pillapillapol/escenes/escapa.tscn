@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://coydpf6pudjbg"]
+
+[ext_resource type="Script" uid="uid://c5jw4b3elyaem" path="res://codis/escapa.gd" id="1_g73v5"]
+[ext_resource type="Texture2D" uid="uid://b4bic6kr8li1h" path="res://imatges/personatge/dreta/alienGreen_walk1.png" id="1_vw10r"]
+[ext_resource type="Texture2D" uid="uid://suuflmm3qtph" path="res://imatges/personatge/dreta/alienGreen_walk2.png" id="2_7sk4i"]
+[ext_resource type="Texture2D" uid="uid://c6wcat6imiaej" path="res://imatges/personatge/esqurra/alienGreen_walk1.png" id="3_7td8e"]
+[ext_resource type="Texture2D" uid="uid://b7f20q5bt6lkb" path="res://imatges/personatge/esqurra/alienGreen_walk2.png" id="4_456n4"]
+[ext_resource type="Texture2D" uid="uid://dxy1my81k1kka" path="res://imatges/personatge/alienGreen_stand.png" id="5_wvems"]
+[ext_resource type="Script" uid="uid://flkaln383sqo" path="res://codis/area2d.gd" id="7_hawjy"]
+[ext_resource type="FontFile" uid="uid://b58gpswg87hdu" path="res://Doctor Glitch.otf" id="8_x6ry8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aostp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vw10r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7sk4i")
+}],
+"loop": true,
+"name": &"dreta",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7td8e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_456n4")
+}],
+"loop": true,
+"name": &"esquerra",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_wvems")
+}],
+"loop": true,
+"name": &"quiet",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g73v5"]
+size = Vector2(66, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hawjy"]
+size = Vector2(72, 96)
+
+[node name="escapa" type="Node2D"]
+scale = Vector2(0.25, 0.25)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_g73v5")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_aostp")
+animation = &"quiet"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_g73v5")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+script = ExtResource("7_hawjy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+shape = SubResource("RectangleShape2D_hawjy")
+
+[node name="final1" type="Label" parent="."]
+offset_left = -1680.0
+offset_top = -280.0
+offset_right = 1859.0
+offset_bottom = 460.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 47
+theme_override_fonts/font = ExtResource("8_x6ry8")
+theme_override_font_sizes/font_size = 200
+text = "HAS ESTAT PILLAT, LA PRÒXIMA 
+VEGADA ESPAVILA UNA MICA CRACK "
+
+[connection signal="body_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]

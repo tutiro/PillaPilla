@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://c24r74pmnge04"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glvpa"]
+size = Vector2(84.5, 28)
+
+[node name="limits" type="Node2D"]
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, -6.10352e-05)
+scale = Vector2(1, 1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(0, 3.05176e-05)
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(256, 254, 259, 161, 272, 162, 306, 123, 352, 121, 353, 73, 394, 73, 395, 29, 757, 30, 757, 70, 800, 74, 838, 120, 934, 120, 935, 250, 986, 254, 982, 269, 1023, 302, 1028, 433, 1004, 434, 983, 459, 983, 481, 940, 482, 937, 439, 893, 438, 890, 391, 846, 388, 809, 346, 713, 350, 712, 389, 664, 389, 664, 526, 620, 523, 619, 476, 581, 478, 576, 434, 483, 436, 484, 477, 438, 481, 438, 570, 306, 570, 304, 527, 214, 528, 214, 454, 194, 435, 176, 436, 171, 255, 61, 266, 90, 552, 489, 610, 958, 596, 1083, 517, 1092, 295, 1036, 85, 700, 2, 306, 14, 83, 165)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(213.25, 239)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_glvpa")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(0, 3.05176e-05)
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(303, 300, 301, 209, 394, 209, 394, 387, 260, 390, 260, 300)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(0, 3.05176e-05)
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(533, 165, 532, 252, 664, 252, 664, 119, 577, 118, 575, 164)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(0, 3.05176e-05)
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(803, 165, 802, 297, 892, 299, 890, 164)

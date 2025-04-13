@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://bw2vwby525i5f"]
+
+[ext_resource type="Script" uid="uid://bcww4nrg8tsml" path="res://codis/verd.gd" id="1_7sk4i"]
+[ext_resource type="Texture2D" uid="uid://b4bic6kr8li1h" path="res://imatges/personatge/dreta/alienGreen_walk1.png" id="1_vw10r"]
+[ext_resource type="Texture2D" uid="uid://suuflmm3qtph" path="res://imatges/personatge/dreta/alienGreen_walk2.png" id="2_7sk4i"]
+[ext_resource type="Texture2D" uid="uid://c6wcat6imiaej" path="res://imatges/personatge/esqurra/alienGreen_walk1.png" id="3_7td8e"]
+[ext_resource type="Texture2D" uid="uid://b7f20q5bt6lkb" path="res://imatges/personatge/esqurra/alienGreen_walk2.png" id="4_456n4"]
+[ext_resource type="Texture2D" uid="uid://dxy1my81k1kka" path="res://imatges/personatge/alienGreen_stand.png" id="5_wvems"]
+[ext_resource type="Script" uid="uid://b0csw4a88tjov" path="res://escenes/area2d.gd" id="7_hawjy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1kenr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vw10r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7sk4i")
+}],
+"loop": true,
+"name": &"dreta",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7td8e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_456n4")
+}],
+"loop": true,
+"name": &"esquerra",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_wvems")
+}],
+"loop": true,
+"name": &"estatic",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7td8e"]
+size = Vector2(66, 92)
+
+[node name="escapa" type="Node"]
+
+[node name="verd" type="CharacterBody2D" parent="."]
+script = ExtResource("1_7sk4i")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="verd"]
+sprite_frames = SubResource("SpriteFrames_1kenr")
+animation = &"estatic"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="verd"]
+shape = SubResource("RectangleShape2D_7td8e")
+
+[node name="Area2D" type="Area2D" parent="verd"]
+script = ExtResource("7_hawjy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="verd/Area2D"]
+shape = SubResource("RectangleShape2D_7td8e")
